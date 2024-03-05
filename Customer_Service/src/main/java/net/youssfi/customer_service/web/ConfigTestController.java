@@ -17,13 +17,17 @@ public class ConfigTestController {
     private  int p1;
     @Value("${global.params.p2}")
     private  int p2;
+    @Value("${global.params.x}")
+    private  int x;
+    @Value("${global.params.y}")
+    private  int y;
 
-@Autowired
+
     private  GlobalConfig globalConfig;
 
-//    public ConfigTestController(GlobalConfig globalConfig) {
-//        this.globalConfig = globalConfig;
-//    }
+    public ConfigTestController(GlobalConfig globalConfig) {
+        this.globalConfig = globalConfig;
+    }
 
 
     @GetMapping("/globalconfig")
@@ -33,7 +37,7 @@ public class ConfigTestController {
 
      @GetMapping("/testconfig")
     public Map<String,Integer> testconfig (){
-        return  Map.of("p1",p1,"p2",p2);
+        return  Map.of("p1",p1,"p2",p2,"x",x,"y",y);
     }
 
 
